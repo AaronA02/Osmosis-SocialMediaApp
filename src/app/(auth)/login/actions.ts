@@ -1,4 +1,4 @@
-"user server"
+"use server"
 
 import prisma from "@/lib/prisma";
 import { loginSchema, loginValues } from "@/lib/validation";
