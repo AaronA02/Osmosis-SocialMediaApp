@@ -19,7 +19,7 @@ export default function PostEditor() {
                 italic: false,
             }),
             Placeholder.configure({
-                placeholder: "Wassaaaaappppp"
+                placeholder: "What's on your mind?"
             })
         ]
     })
