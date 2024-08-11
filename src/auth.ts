@@ -32,11 +32,11 @@ declare module "lucia" {
 }
 
 interface DatabaseUserAttributes {
-    id: String;
-    username: String;
-    displayName: String;
-    avatarUrl: String | null;
-    googleId: String | null;
+    id: string;
+    username: string;
+    displayName : string;
+    avatarUrl: string | null;
+    googleId: string | null;
 }
 
 export const validateRequest = cache(
