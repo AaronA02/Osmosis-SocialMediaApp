@@ -2,12 +2,12 @@ import PostEditor from "@/components/posts/editor/PostEditor";
 import Post from "@/components/posts/Post";
 import TrendsSidebar from "@/components/TrendsSidebar";
 import prisma from "@/lib/prisma";
-import { postDataInclude } from "@/lib/types";
 import ForYouFeed from "./ForYouFeed";
+import { getPostDataInclude } from "@/lib/types";
 
 export default async function Home() {
   const posts = await prisma.post.findMany({
-    include: postDataInclude,
+    include: getPostDataInclude(user.id),
     orderBy: { createdAt: "desc"}
   })
 
