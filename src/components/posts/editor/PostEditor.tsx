@@ -51,7 +51,7 @@ export default function PostEditor() {
   const input =
     editor?.getText({
       blockSeparator: "\n",
-    }) || "";
+    }) || "";                       
 
   function onSubmit() {
     mutation.mutate(
