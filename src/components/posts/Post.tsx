@@ -80,14 +80,14 @@ export default function Post({ post }: PostProps) {
             onClick={() => setShowComments(!showComments)}
           />
         </div>
-        {/* <BookmarkButton
+        <BookmarkButton
           postId={post.id}
           initialState={{
             isBookmarkedByUser: post.bookmarks.some(
               (bookmark) => bookmark.userId === user.id,
             ),
           }}
-        /> */}
+        />
       </div>
       {/* {showComments && <Comments post={post} />} */}
     </article>
