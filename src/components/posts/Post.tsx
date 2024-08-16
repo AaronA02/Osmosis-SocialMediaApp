@@ -68,13 +68,13 @@ export default function Post({ post }: PostProps) {
       <hr className="text-muted-foreground" />
       <div className="flex justify-between gap-5">
         <div className="flex items-center gap-5">
-          {/* <LikeButton
+          <LikeButton
             postId={post.id}
             initialState={{
               likes: post._count.likes,
               isLikedByUser: post.likes.some((like) => like.userId === user.id),
             }}
-          /> */}
+          />
           <CommentButton
             post={post}
             onClick={() => setShowComments(!showComments)}
