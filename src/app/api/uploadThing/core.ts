@@ -1,6 +1,6 @@
 import { validateRequest } from "@/auth";
 import prisma from "@/lib/prisma";
-import streamServerClient from "@/lib/stream";
+// import streamServerClient from "@/lib/stream";
 import { createUploadthing, FileRouter } from "uploadthing/next";
 import { UploadThingError, UTApi } from "uploadthing/server";
 
@@ -40,12 +40,12 @@ export const fileRouter = {
             avatarUrl: newAvatarUrl,
           },
         }),
-        streamServerClient.partialUpdateUser({
-          id: metadata.user.id,
-          set: {
-            image: newAvatarUrl,
-          },
-        }),
+        // streamServerClient.partialUpdateUser({
+        //   id: metadata.user.id,
+        //   set: {
+        //     image: newAvatarUrl,
+        //   },
+        // }),
       ]);
 
       return { avatarUrl: newAvatarUrl };

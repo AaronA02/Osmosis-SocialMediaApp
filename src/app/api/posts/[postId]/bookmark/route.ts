@@ -44,7 +44,7 @@ export async function POST(
       return Response.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    await prisma..upsert({
+    await prisma.upsert({
       where: {
         userId_postId: {
           userId: loggedInUser.id,

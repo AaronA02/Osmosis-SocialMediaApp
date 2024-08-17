@@ -45,7 +45,7 @@ export function getPostDataInclude(loggedInUserId: string) {
     },
     bookmarks: {
       where: {
-        userId: loggedInUserId,
+        userId: loggedInUserId, 
       },
       select: {
         userId: true,
