@@ -2,7 +2,7 @@ import { validateRequest } from "@/auth";
 import prisma from "@/lib/prisma";
 import { getUserDataSelect } from "@/lib/types";
 
-export async function get(
+export async function GET(
   req: Request,
   { params: { username } }: { params: { username: string } },
 ) {
