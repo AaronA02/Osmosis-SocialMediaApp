@@ -2,7 +2,8 @@
 
 import { lucia } from "@/auth";
 import prisma from "@/lib/prisma";
-import { signUpSchema, signUpValues } from "@/lib/validation";
+import streamServerClient from "@/lib/stream";
+import { signUpSchema, SignUpValues } from "@/lib/validation";
 import { hash } from "@node-rs/argon2"
 import { generateIdFromEntropySize } from "lucia";
 import { isRedirectError } from "next/dist/client/components/redirect";
@@ -10,7 +11,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export async function signUp(
-    credentials: signUpValues
+    credentials: SignUpValues
 ): Promise<{error: string}> {
     try {
         const { username, email, password } = signUpSchema.parse(credentials);
@@ -54,15 +55,23 @@ export async function signUp(
             }
         }
 
-        await prisma.user.create({
-            data : {
-                id : userId,
+        await prisma.$transaction(async (tx) => {
+            await tx.user.create({
+                data : {
+                    id : userId,
+                    username,
+                    displayName : username,
+                    email,
+                    passwordHash
+                }
+            });
+    
+            await streamServerClient.upsertUser({
+                id: userId,
                 username,
-                displayName : username,
-                email,
-                passwordHash
-            }
-        })
+                name: username,
+            });
+        });
 
         const session = await lucia.createSession(userId, {})
         const sessionCookie = lucia.createSessionCookie(session.id);
