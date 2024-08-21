@@ -1,6 +1,6 @@
 "use client";
 
-import { signUpSchema, signUpValues } from "@/lib/validation";
+import { signUpSchema, SignUpValues } from "@/lib/validation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod" 
 import { 
@@ -24,7 +24,7 @@ export default function SignUpForm() {
 
     const [isPending, startTransition] = useTransition();
 
-    const form = useForm<signUpValues>({
+    const form = useForm<SignUpValues>({
         resolver: zodResolver(signUpSchema),
         defaultValues: {
             email: "",
@@ -33,7 +33,7 @@ export default function SignUpForm() {
         },
     });
 
-    async function onSubmit(values : signUpValues) {
+    async function onSubmit(values : SignUpValues) {
         setError(undefined);
         startTransition(async () => {
             const { error } = await signUp(values);
