@@ -11,7 +11,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { loginSchema, loginValues } from "@/lib/validation";
+import { loginSchema, LoginValues } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
@@ -22,7 +22,7 @@ export default function LoginForm() {
 
   const [isPending, startTransition] = useTransition();
 
-  const form = useForm<loginValues>({
+  const form = useForm<LoginValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
       username: "",
@@ -30,7 +30,7 @@ export default function LoginForm() {
     },
   });
 
-  async function onSubmit(values: loginValues) {
+  async function onSubmit(values: LoginValues) {
     setError(undefined);
     startTransition(async () => {
       const { error } = await login(values);
