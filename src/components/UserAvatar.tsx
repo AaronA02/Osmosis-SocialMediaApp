@@ -1,6 +1,6 @@
-import Image from "next/image";
 import avatarPlaceholder from "@/assets/avatar-placeholder.png";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface UserAvatarProps {
   avatarUrl: string | null | undefined;
@@ -16,7 +16,7 @@ export default function UserAvatar({
   return (
     <Image
       src={avatarUrl || avatarPlaceholder}
-      alt="User Avatar"
+      alt="User avatar"
       width={size ?? 48}
       height={size ?? 48}
       className={cn(
