@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/create-next-app).
+<h1>Osmosis - Social Media Application</h1>
+<br/>
+<h3>Overview</h3>
+<br/>
+Osmosis is a modern social media web application built with a robust tech stack aimed at providing a seamless and interactive user experience. This project leverages cutting-edge technologies and follows best practices in software development to ensure scalability, performance, and security.
+<br/>
 
-## Getting Started
+<h3>Tech Stack</h3>
+<h4 classname="bold">Frontend</h4>
+  <ul>
+    <li>React: A JavaScript library for building user interfaces.</li>
+    <li>Next.js: A React framework with hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more.</li>
+    <li>TypeScript: A strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.</li>
+    <li>Tailwind CSS: A utility-first CSS framework packed with classes like flex, pt-4, text-center, and rotate-90 that can be composed to build any design, directly in your markup.</li>
+  </ul>
 
-First, run the development server:
+<h4 classname="bold">Backend</h4>
+  <ul>
+    <li>Prisma: A next-generation ORM that can be used to build GraphQL servers, REST APIs, microservices & more.</li>
+    <li>Lucia Authentication: A secure and flexible user authentication library, with support for various adapters, including Prisma.</li>
+    <li>UploadThing: A seamless file upload solution for modern web applications, integrated with server-side rendering in Next.js.</li>
+  </ul>
+  
+<h4 classname="bold">State Management</h4>
+<ul>
+  <li>React Query: For fetching, caching, synchronizing, and updating server state in React applications.</li>
+</ul>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<h4 classname="bold">Other Tools</h4>
+  <ul>
+    <li>Zod: A TypeScript-first schema declaration and validation library.</li>
+    <li>Arctic: For integrating Google authentication into the application.</li>
+    <li>Tanstack React Query Devtools: Development tool for debugging React Query.</li>
+  </ul>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<h3>Features</h3>
+<h4>Custom Hooks</h4>
+<ul>
+  <li>useDebounce: Debounces a value to limit the rate of updates, enhancing performance and user experience.</li>
+  <li>useFollowerInfo: Fetches and caches follower information for a user using React Query.</li>
+  <li>useSession: Provides a context-based hook to access session data, ensuring secure access to authenticated user information.</li>
+</ul>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/osmosis-socialmediaapp.git
+2. **Navigate to the project directory**:
+   ```bash
+   cd osmosis-socialmediaapp
+3. **Install the dependencies**:
+   ```bash
+   npm install
+4. **Set up the environment variables and Prisma**:
+   ```bash
+   npx prisma migrate dev
+5. **Run the development server**:
+   ```bash
+   npm run dev
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
